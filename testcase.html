@@ -130,13 +130,22 @@
 	</script>
 	<script>
 	 $("#submit").click(function(){
-        alert("nama: " 		+ $("#name").val() + "\n" +
+	 
+	 var name = $("#name").val();
+	 
+	 if(name == ''){
+	    alert('nama harus di isi');
+	 }else if (name.length < 3){
+		alert('nama harus lebih dari 3 huruf');
+	 }else{
+        alert("nama: " 		+ name + "\n" +
 			  "description" +  $("#description").val() + "\n" +
 			  "street" +  $("#street").val() + "\n" +
 			  "city" +  $("#city").val() +  "\n" +
 			  "province" +  $("#province").val() + "\n" +
 			  "postalcode" +  $("#postalcode").val()
-			  );	  
+			  );
+			}
     });
 	</script>
 	
