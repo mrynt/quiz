@@ -1,0 +1,48 @@
+body{
+	margin-top:50px;
+}
+
+p.ask{
+	z-index:-1;
+	margin-top:-60px;
+	margin-left:20px;
+	padding:0 0 3 3;
+	width:12%;
+	background-color:white;
+	font-weight:bold;
+}
+
+.askus{
+	margin-top:75px;
+	padding:50 50 5 5;
+	border:1px solid black;
+}
+
+p.addresstext{
+	z-index:-1;
+	margin-top:-60px;
+	margin-left:20px;
+	padding:0 0 3 3;
+	width:12%;
+	background-color:white;
+	font-weight:bold;
+}
+
+.address{
+	margin-top:30px;
+	padding:50 50 90 5;
+	border:1px solid black;
+}
+
+.tOp{
+	margin-top:60px;
+}
+
+.add{
+	padding-left:0px;
+	padding-right:0px;
+}
+
+input.btn.pull.btn-lg.added {
+    margin-left: 300px;
+}

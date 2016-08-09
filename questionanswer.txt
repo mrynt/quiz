@@ -1,0 +1,6 @@
+How do you prevent the user from submitting the form prematurely when the user hit enter? Make Validation data,appropriate recruitment
+
+
+
+How do you add validation and error messages to the form?
+WITH logic add validation and sending error messages in the front

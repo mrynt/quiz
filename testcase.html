@@ -1,0 +1,152 @@
+<!doctype>
+<html>
+	<head>
+		<title>TEST</title>
+		<meta name="description" content="TEST">
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8">
+		
+		<!-- Bootstrap framework CSS minified -->
+		<link rel="stylesheet" href="asset/css/bootstrap.min.css">
+		
+		<link rel="stylesheet" href="asset/css/costumstyle.css">
+		
+		<!-- jQuery Latest library minified -->
+		<script src="asset/js/jquery-3.1.0.min.js"></script>
+
+		<!-- Bootstrap framework JS minified -->
+		<script src="asset/js/bootstrap.min.js"></script>
+		
+	</head>
+	<body>
+		<div class="container">
+			<form method="POST" class="form-horizontal" name="form1" id="form1">
+				<div class="row">
+					<div class="col-md-6">
+						<img class="img-responsive" src="asset/testcase.jpg" alt="" width="250" height="200">
+					</div>
+					<div class="col-md-6">
+						<input type="submit" class="btn pull btn-lg added btn-primary" name="submit" value="SUBMIT" id="submit" >
+						<input type="reset" class="btn pull-right btn-lg btn-danger" name="reset" value="CANCEL" >
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 tOp">
+						<div class="form-group">
+							<label class="col-md-12" for="name">name</label>
+							<div class="col-md-12">
+								<input type="text" class="form-control" id="name" name="name">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-md-12" for="description">description</label>
+							<div class="col-md-12">
+								<textarea class="form-control" rows="5" id="description" name="description"></textarea>
+						 </div>
+						</div>
+						
+						<div class="address">
+						<p class="addresstext"> address </p>
+							<div class="form-group">
+								<label class="col-md-12" for="street">street</label>
+								<div class="col-md-12">
+									<input type="text" class="form-control" id="street" name="street">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-12" for="city">city</label>
+								<div class="col-md-12">
+									<input type="text" class="form-control" id="city" name="city">
+								</div>
+							</div>
+							<div class="form-group col-md-6 add">
+								<label class="col-md-12" for="province">province</label>
+								<div class="col-md-12">
+									<select class="form-control" name="province" id="province">
+								
+									</select>
+								</div>
+							</div>
+							<div class="form-group col-md-6 pull-right add">
+								<label class="col-md-12" for="postalcode">postal code</label>
+								<div class="col-md-12">
+									<input type="text" class="form-control" id="postalcode" name="postalcode" onkeyup="if (/\D/g.test(this.value)) this.value = this.value.replace(/\D/g,'')">
+								</div>
+							</div>
+						</div>
+					</div>
+			</form>
+				<div class="col-md-6">
+					<div class="askus">
+					<p class="ask"> ASK US </p>
+			<form method="POST" class="form-horizontal" name="form2" id="form2">		
+					<div class="form-group">
+						<label class="col-md-12" for="division">division</label>
+						<div class="col-md-4">
+							<select class="form-control" name="division" id="division">
+								
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+					  <label class="col-md-12" for="name">Name</label>
+					  <div class="col-md-12">
+						<input type="text" class="form-control" id="nameask">
+					  </div>
+					</div>
+					<div class="form-group">
+						 <label class="col-md-12" for="question">Question</label>
+						 <div class="col-md-12">
+							<textarea class="form-control" rows="5" id="question" name="questionask"></textarea>
+						 </div>
+					</div>
+					<input type="submit" class="btn btn-primary" value="send" id="send">
+			</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<!-- Get data select box from data.json -->
+	<script>
+		$.ajax({ 
+			type: 'POST', 
+			url: 'data.json', 
+			data: { get_param: 'value' }, 
+			dataType: 'json',
+			success: function (data) { 
+			 //console.log(data);
+			 var html ="";
+			 var htmls ="";
+			  $.each(data, function(index, element) {
+						html +='<option value="'+element.data+'">'+element.data+'</option>';
+						htmls +='<option value="'+element.province+'">'+element.province+'</option>';
+						$('#division').html(html);
+						$('#province').html(htmls);
+										
+				});
+			}
+		});
+		
+	</script>
+	<script>
+	 $("#submit").click(function(){
+        alert("nama: " 		+ $("#name").val() + "\n" +
+			  "description" +  $("#description").val() + "\n" +
+			  "street" +  $("#street").val() + "\n" +
+			  "city" +  $("#city").val() +  "\n" +
+			  "province" +  $("#province").val() + "\n" +
+			  "postalcode" +  $("#postalcode").val()
+			  );	  
+    });
+	</script>
+	
+	<script>
+	 $("#send").click(function(){
+        alert("division" +  $("#division").val() + "\n" +
+			  "nama: " 		+ $("#nameask").val() + "\n" +
+			  "question" +  $("#question").val() + "\n" 	
+			 );				  
+    });
+	</script>
+	
+</html>
